@@ -1,5 +1,14 @@
 <!-- THIS TAG IS WRAPPED WITHIN THEIR OWN SCOPE -->
-<div class="" ng-controller="BlogListController">
+<div class="">
     <h4>{{ title }} : {{clicks}} </h4>
     <button class="btn btn-primary" ng-click="someClickTest()">Click Me!</button>
+    <ul>
+        <li ng-repeat="item in items">
+            <a href='#!/blog/{{ item.id }}'> {{ item.title }} </a>
+            <p>{{ item.description }}</p>
+        </li>
+    </ul>
+
+    <span ng-if='items.length >= 4'>There are {{items.length}} items</span>
+
 </div>

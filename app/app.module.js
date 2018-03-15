@@ -1,3 +1,9 @@
 'use strict';
 // [ INJECT ALL THE MODULES ]
-angular.module('try', ['blogList']);
+angular.module('try', [
+    // External
+    'ngResource',
+    'ngRoute',
+    // Internal
+    'blogList'
+]);

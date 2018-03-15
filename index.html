@@ -4,11 +4,14 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <base href="/">
         <title>Page Title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
         <!-- <script src="/app/js/angular.min.js"></script> -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-resource.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
         <!-- Config Module -->
         <script src="./app/app.module.js"></script>
         <script src="./app/app.config.js"></script>
@@ -25,22 +28,35 @@
 
 
     <body class="container" ng-app="try">
-        <!-- Property bingding -->
-        <h3>Property binding</h3>
-        <input type="text" ng-model="searchText" />
-        <p> {{ searchText }}
-            <!-- Conditions -->
-            <h3>Conditions</h3>
-            <span ng-if='searchText'>{{searchText}}</span>
-            <span ng-if='!searchText'>There is no name</span>
 
-            <h3>Class condition</h3>
-            <h4 class="new-class" ng-class="{'other-class': searchText}">Heading class </h4>
+        <ng-view></ng-view>
 
-        </p>
+        <div>
 
-        <blog-list></blog-list>
-        <blogList></blogList>
+            <h3>Property binding</h3>
+            <input type="text" ng-model="searchText" />
+            <p> {{ searchText }}
+
+                <h3>Conditions</h3>
+                <span ng-if='searchText'>{{searchText}}</span>
+                <span ng-if='!searchText'>There is no name</span>
+
+                <h3>Class condition</h3>
+                <h4 class="new-class" ng-class="{'other-class': searchText}">Heading class </h4>
+            </p>
+
+            <i> hereName to here-name </i>
+            <here-name></here-name>
+
+        </div>
+
+        <!-- <li>
+            <a href="#!/blog/1/">Link1</a>
+            <a href="#!/blog/2/">Link2</a>
+        </li>
+
+        <ng-view></ng-view> -->
+
     </body>
 
 </html>
