@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Page Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+        <!-- <script src="/app/js/angular.min.js"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <!-- Config Module -->
+        <script src="./app/app.module.js"></script>
+        <script src="./app/app.config.js"></script>
+        <!-- Components -->
+        <script src="./app/blog-list/blog-list.module.js"></script>
+        <script src="./app/blog-list/blog-list.component.js"></script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="./style.css">
+
+    </head>
+
+
+
+    <body class="container" ng-app="try">
+        <!-- Property bingding -->
+        <h3>Property binding</h3>
+        <input type="text" ng-model="searchText" />
+        <p> {{ searchText }}
+            <!-- Conditions -->
+            <h3>Conditions</h3>
+            <span ng-if='searchText'>{{searchText}}</span>
+            <span ng-if='!searchText'>There is no name</span>
+
+            <h3>Class condition</h3>
+            <h4 class="new-class" ng-class="{'other-class': searchText}">Heading class </h4>
+
+        </p>
+
+        <div class="" ng-controller="BlogListController">
+
+        </div>
+
+    </body>
+
+</html>
