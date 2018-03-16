@@ -21,7 +21,6 @@ angular.module('confirmClick')
                 element.bind("click", function(event) {
                     // console.log(attr.confirmClick);
                     // console.log(attr.confirmedClick);
-                    console.log(clickAction);
 
                     event.stopImmediatePropagation();
                     event.preventDefault();
