@@ -4,7 +4,18 @@ angular.module('blogList').component('hereName', {
     
         templateUrl:'/app/blog-list/blog-list.template.html',
         // CONTROLLER IS  LIKE THE CONSTRUCOR
-        controller: function(Post, $routeParams, $scope) {
+        controller: function(Post, $routeParams, $scope, $rootScope, $location) {
+            
+            // [+] Event attached to the html tag 
+            $scope.goToItem = function($value) {
+                
+                console.log($value);
+                console.log('Funcion executing', $value.id);   
+                // Router redirect
+                $rootScope.$apply(function(){
+                    $location.path('/blog/' + $value.id)
+                })
+            }
 
             // console.log($routeParams);
             $scope.items = Post.query();
