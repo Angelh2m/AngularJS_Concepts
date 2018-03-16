@@ -7,17 +7,16 @@ angular.module('try')
 
         $routeProvider
             .when('/', {
-                controller: 'blogList',
-                templateURL: './blog-list/blog-list.template.html'
-            })
-            .when('/blog/1', {
-                template: '<h1>HERE!</h1>'
-            })
-            .when('/blog/2', {
-                controller: 'blogList',
-                templateURL: './blog-list/blog-list.template.html'
+                template: '<here-name></here-name>'
             })
 
+            .when('/test/:id', {
+                template: '<test-component></test-component>'
+            })
+
+            .when('/blog/:id', {
+                template: '<h1>HERE!</h1>'
+            })
             .otherwise({
                 template: "NOT FOUND"
             })

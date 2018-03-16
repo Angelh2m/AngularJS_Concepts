@@ -5,5 +5,6 @@ angular.module('try', [
     'ngResource',
     'ngRoute',
     // Internal
-    'blogList'
+    'blogList',
+    'testComponent'
 ]);

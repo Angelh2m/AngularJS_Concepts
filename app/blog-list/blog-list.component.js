@@ -14,7 +14,6 @@ angular.module('blogList').component('hereName', {
                 {title: "Some Title 4", id:"4", description:"The description 4"},
                 {title: "Some Title 5", id:"5", description:"The description 5"},
                 {title: "Some Title 6", id:"6", description:"The description 6"},
-
             ];
 
             $scope.items = blogItems;
