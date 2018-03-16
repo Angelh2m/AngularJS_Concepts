@@ -4,8 +4,11 @@
     <button class="btn btn-primary" ng-click="someClickTest()">Click Me!</button>
     <ul>
         <li ng-repeat="item in items">
-            <a href='#!/blog/{{ item.id }}'> {{ item.title }} </a>
-            <p>{{ item.description }}</p>
+            <a href='#!/blog/{{ item.id }}' confirmed-click="/blog{{ item.id }}" confirm-click="Are you ready?">
+                {{ item.title }}
+            </a>
+            <!-- <confirm-click eq="10 + 100" post="item" message="are you positive?"></confirm-click> -->
+            <p>{{ item.body }}</p>
         </li>
     </ul>
 
