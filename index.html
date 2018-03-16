@@ -21,6 +21,13 @@
         <!-- Component2 -->
         <script src="./app/test-component/test-component.module.js"></script>
         <script src="./app/test-component/test-component.component.js"></script>
+        <!-- Component3 -->
+        <script src="./app/blog-detail/blog-detail.module.js"></script>
+        <script src="./app/blog-detail/blog-detail.component.js"></script>
+        <!-- CORE SERVICE -->
+        <script src="./app/core/post.module.js"></script>
+        <script src="./app/core/post.service.js"></script>
+
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
             crossorigin="anonymous">
@@ -29,18 +36,17 @@
     </head>
 
 
-
     <body class="container" ng-app="try">
 
         <li>
             <a href="#!/">Home</a>
-            <a href="#!/test/1">Test component</a>
-            <a href="#!/blog/2/">Link2</a>
+            <a href="#!/blog/BlogTitle">Blog Detail</a>
+            <a href="#!/blog/2/nameOfBlog">Link2</a>
         </li>
         <hr>
-        <test-component></test-component>
-        <testComponent></testComponent>
-        <hr>
+        <!-- <blog-detail></blog-detail> -->
+        <!-- <test-component></test-component> -->
+
         <ng-view></ng-view>
 
         <!-- <div>

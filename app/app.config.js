@@ -10,12 +10,12 @@ angular.module('try')
                 template: '<here-name></here-name>'
             })
 
-            .when('/test/:id', {
-                template: '<test-component></test-component>'
+            .when('/blog/:id', {
+                template: '<blog-detail><blog-detail>'
             })
 
-            .when('/blog/:id', {
-                template: '<h1>HERE!</h1>'
+            .when('/blog/:id/:abc', {
+                template: '<here-name></here-name>'
             })
             .otherwise({
                 template: "NOT FOUND"
