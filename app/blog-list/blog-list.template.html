@@ -1,14 +1,21 @@
 <!-- THIS TAG IS WRAPPED WITHIN THEIR OWN SCOPE -->
+<h3>List</h3>
+
+
+<div ng-controller="directiveController">
+    <random-ninja ninjas='ninjas'
+        title="'Random ninjas'"></random-ninja>
+</div>
+
 <div class="">
     <h4>{{ title }} : {{clicks}} </h4>
-    <button class="btn btn-primary" ng-click="someClickTest()">Click Me!</button>
+    <button class="btn btn-primary"
+        ng-click="someClickTest()">Click Me!</button>
     <ul>
         <li ng-repeat="item in items">
-            <a 
-            ng-href="#!/blog/{{ item.id }}" 
-            confirmed-click="goToItem(item)" 
-            confirm-click="Are you ready?"
-            > {{ item.title }}</a>
+            <a ng-href="#!/blog/{{ item.id }}"
+                confirmed-click="goToItem(item)"
+                confirm-click="Are you ready?"> {{ item.title }}</a>
             <!-- <a 
             ng-click="goToItem()"
             href='#!/blog/{{ item.id }}' 

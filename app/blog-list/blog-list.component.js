@@ -31,3 +31,5 @@ angular.module('blogList').component('hereName', {
         
     });
 })(window.angular);
+
+

@@ -5,3 +5,46 @@
 .other-class {
   color: black;
 }
+
+li {
+  padding: 0.5rem;
+}
+
+button {
+  padding: 0 1rem !important;
+  margin: 1rem 0rem;
+}
+
+input {
+  margin: 1rem 0rem;
+}
+
+.text-rigth {
+  float: right;
+  margin-left: 1rem;
+}
+
+.angularForm {
+  width: 60%;
+}
+
+.thumb {
+  height: 44px;
+  border-radius: 5rem;
+  border: solid 3px whitesmoke;
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.element {
+  margin: 2rem 0rem;
+}
+
+/* .ng-enter  {
+  transition: 1s linear all;
+
+}
+
+.ng-enter.ng-enter-active {
+  opacity: 1;
+} */

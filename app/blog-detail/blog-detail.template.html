@@ -6,32 +6,40 @@
 <hr>
 <h3>Write a comment</h3>
 
-<p  ng-if="reply" >Reply {{ reply.text }}</p>
+<p ng-if="reply">Reply {{ reply.text }}</p>
 <form ng-submit="addReply()">
-    <input type="hidden" ng-model='reply.id' >
-    <textarea ng-model='reply.text' class="form-control"></textarea>
-    <input type="submit" class="btn btn-success">
+    <input type="hidden"
+        ng-model='reply.id'>
+    <textarea ng-model='reply.text'
+        class="form-control"></textarea>
+    <input type="submit"
+        class="btn btn-success">
 </form>
 
 
 <h3>Test</h3>
 <form name="myForm">
-    <a href="" validate-directive="Value" >click</a>
-    <input ng-model="some.path" type="text" validate-directive />
+    <a href=""
+        validate-directive="Value">click</a>
+    <input ng-model="some.path"
+        type="text"
+        validate-directive />
 </form>
 <!-- <validate-directive>Hello</validate-directive> -->
 
 <hr>
 <h3>Comments</h3>
 <li>
-    <input type="text" ng-model="query" placeholder="Filter comments"  >
+    <input type="text"
+        ng-model="query"
+        placeholder="Filter comments">
 </li>
 <li ng-repeat='comment in post.comments  | filter: query'>
-   <a > {{comment | uppercase}}  </a> 
-  <span class="btn btn-info btn-sm"
-  confirm-click="Do you want to delete this?"
-  confirmed-click="deleteComment(comment)"
-  >Confirm</span>
-  <span class="btn btn-danger  btn-sm " ng-click="deleteComment(comment)">X</span> 
+    <a> {{comment | uppercase}} </a>
+    <span class="btn btn-primary btn-sm"
+        confirm-click="Do you want to delete this?"
+        confirmed-click="deleteComment(comment)">Confirm</span>
+    <span class="btn btn-danger  btn-sm "
+        ng-click="deleteComment(comment)">X</span>
 
 </li>

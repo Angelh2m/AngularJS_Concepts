@@ -1,0 +1,67 @@
+<h1>Exploring Main Directives</h1>
+
+
+
+<div class="row"
+    ng-controller="directiveController">
+
+    <div class="col-sm-12">
+        <random-ninja ninjas='ninjas'
+            title="'Random ninjas'"></random-ninja>
+    </div>
+
+
+    <div class="col-sm-6">
+        <form ng-submit="addNinja()">
+            {{ warning }}
+            <input type="text"
+                class="form-control angularForm"
+                ng-model="newninja.name"
+                placeholder="name">
+            <input type="text"
+                class="form-control angularForm"
+                ng-model="newninja.belt"
+                placeholder="belt">
+            <input type="text"
+                class="form-control angularForm"
+                ng-model="newninja.rate"
+                placeholder="rate">
+            <label for="available">Is he available?</label>
+            <input type="checkbox"
+                placeholder="Is he available?: "
+                ng-model="newninja.available"
+                name="available">
+            <br>
+            <input type="submit"
+                class="btn btn-primary btn-sm "
+                value="Add new ninja">
+        </form>
+    </div>
+
+    <div class="col-sm-6">
+        {{message}}
+        <div>
+            <input class="form-control"
+                placeholder="Seach for ninja"
+                type="text"
+                ng-model="search">
+        </div>
+        <button class="btn btn-sm btn-success"
+            ng-click="order = 'name'">Order by name</button>
+        <button class="btn btn-sm btn-success"
+            ng-click="order = 'belt'">Order by belt</button>
+        <li ng-show="ninja.available"
+            ng-repeat="ninja in ninjas | orderBy: order | filter: search">
+            <span>
+                <img class="thumb"
+                    ng-src="{{ninja.thumb}}"
+                    ng-show="ninja.thumb"
+                    alt=""> </span>
+            {{ ninja.name }} - {{ ninja.rate | currency }}
+            <span ng-click="removeNinja(ninja)"
+                class="text-rigth btn btn-danger btn-sm"> X </span>
+            <span class="text-rigth"> {{ninja.belt}} </span>
+            <hr>
+        </li>
+    </div>
+</div>

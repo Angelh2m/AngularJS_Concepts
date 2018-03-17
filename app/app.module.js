@@ -4,6 +4,7 @@ angular.module('try', [
     // External
     'ngResource',
     'ngRoute',
+    'ngAnimate',
     // Components
     'blogList',
     'blogDetail',
@@ -13,4 +14,8 @@ angular.module('try', [
     'confirmClick',
     'customFilter',
     'validateDirective',
+    'directiveComp',
+    // [More] directives,
+    'contactForm',
+    'directiveController',
 ]);

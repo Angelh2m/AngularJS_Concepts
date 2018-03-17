@@ -13,6 +13,15 @@ angular.module('try')
             .when('/forms', {
                 template: '<form-validation></form-validation>'
             })
+            
+            .when('/directives', {
+                template: '<directive-comp></directive-comp>'
+            })
+
+            .when('/contact', {
+                templateUrl: 'app/contact-form/contact-form.template.html',
+                controller: 'contactForm2',
+            })
 
             .when('/blog/:id', {
                 template: '<blog-detail><blog-detail>'

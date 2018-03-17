@@ -1,0 +1,46 @@
+<div class="row">
+
+    <div>
+
+    </div>
+    <div class="col-sm-6">
+        <h3>Form Validation</h3>
+        <!-- {{contactForm.name}} -->
+
+        <form name="contactForm"
+            ng-submit="sendMessage()"
+            novalidate>
+            {{greeting}}
+
+            <div ng-show="contactForm.name.$touched">
+                Heu
+            </div>
+            <input class="form-control"
+                type="text"
+                autocomplete="current-email"
+                ng-model="contact.name"
+                placeholder="Name"
+                name="name">
+            <input class="form-control"
+                type="email"
+                ng-model="contact.email"
+                autocomplete="current-email"
+                name="email"
+                placeholder="email">
+            <textarea class="form-control"
+                placeholder="your message"
+                ng-model="contact.message"
+                name="message"></textarea>
+            <input class="btn btn-primary btn-sm"
+                type="submit"
+                ng-disabled="contactForm.$invalid"
+                value="send">
+        </form>
+    </div>
+    <div class="col-sm-6">
+        {{contact}}
+
+    </div>
+
+
+</div>
