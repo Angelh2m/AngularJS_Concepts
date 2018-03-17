@@ -3,10 +3,12 @@
 
     <head>
         <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="X-UA-Compatible"
+            content="IE=edge">
         <base href="/">
         <title>Page Title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1">
         <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
         <!-- <script src="/app/js/angular.min.js"></script> -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
@@ -24,43 +26,72 @@
         <!-- Component3 -->
         <script src="./app/blog-detail/blog-detail.module.js"></script>
         <script src="./app/blog-detail/blog-detail.component.js"></script>
+        <!-- Form Validation -->
+        <script src="./app/form-validation/form-validation.module.js"></script>
+        <script src="./app/form-validation/form-validation.component.js"></script>
         <!-- CORE SERVICE -->
         <script src="./app/core/post.module.js"></script>
         <script src="./app/core/post.service.js"></script>
         <!-- Directives  -->
         <script src="./app/utils/confirm-click/confirm-click.module.js"></script>
         <script src="./app/utils/confirm-click/confirm-click.directive.js"></script>
+        <!-- Directive 2 -->
+        <script src="./app/utils/validate-directive/validate.module.js"></script>
+        <script src="./app/utils/validate-directive/validate.directive.js"></script>
+        <!-- Filter -->
+        <script src="./app/filters/custom-filter.module.js"></script>
+        <script src="./app/filters/custom-filter.js"></script>
 
 
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        <link rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
             crossorigin="anonymous">
-        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet"
+            href="./style.css">
 
     </head>
 
 
-    <body class="container" ng-app="try">
+    <body class="container"
+        ng-app="try">
 
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#!/"href="#!/">AngularJS</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                  <ul class="navbar-nav">
+            <a class="navbar-brand"
+                href="#!/"
+                href="#!/">AngularJS</a>
+            <button class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse"
+                id="navbarNav">
+                <ul class="navbar-nav">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#!/blog/BlogTitle">Blog Detail</a>
+                        <a class="nav-link"
+                            href="#!/blog/BlogTitle">Blog Detail</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#!/blog/2/nameOfBlog">Link2</a>
+                        <a class="nav-link"
+                            href="#!/blog/2/nameOfBlog">Link2</a>
                     </li>
-                  </ul>
-                </div>
-              </nav>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                            href="#!/forms">Form Validation</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
         <hr>
         <!-- <blog-detail></blog-detail> -->

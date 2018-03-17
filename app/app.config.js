@@ -10,6 +10,10 @@ angular.module('try')
                 template: '<here-name></here-name>'
             })
 
+            .when('/forms', {
+                template: '<form-validation></form-validation>'
+            })
+
             .when('/blog/:id', {
                 template: '<blog-detail><blog-detail>'
             })

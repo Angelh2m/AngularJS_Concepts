@@ -4,9 +4,13 @@ angular.module('try', [
     // External
     'ngResource',
     'ngRoute',
-    // Internal
+    // Components
     'blogList',
     'blogDetail',
+    'formValidation',
     'testComponent',
-    'confirmClick'
+    // directives
+    'confirmClick',
+    'customFilter',
+    'validateDirective',
 ]);

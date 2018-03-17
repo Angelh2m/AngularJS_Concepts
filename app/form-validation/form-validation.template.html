@@ -1,0 +1,72 @@
+<h2>Controller in action</h2>
+
+<input type="text"
+    ng-model='car'
+    ng-change="selectCar()">
+<p>Your car is: {{ message }}</p>
+
+<hr>
+<h3>Form Validation</h3>
+<form ng-submit='validateForm()'>
+    <input type="text"
+        ng-model="formValues.nombre"
+        name="nombre" />
+    <input type="text"
+        ng-model="formValues.apellido"
+        name="appellido" />
+    <button class="btn btn-success"
+        type="submit">Send</button>
+</form>
+
+
+<hr>
+<div>
+    <h3>Two-Way property binding</h3>
+
+    <input type="text"
+        ng-model="hello"> {{hello}}
+
+    <button class="btn btn-success btn-sm"
+        ng-click="theValue()"> Two way binding </button>
+    <br>
+    <input type="checkbox"
+        ng-model="isCheckboxChecked">
+    <span ng-if="isCheckboxChecked">Checkbox is checked</span>
+    <span ng-if="!isCheckboxChecked">Checkbox is NOT checked</span>
+</div>
+
+<hr>
+
+<h2>Form Validation</h2>
+<form name="myform"
+    class="form-group"
+    ng-submit="register()"
+    novalidate>
+    <p ng-show="text"> {{ text }}</p>
+    <p>PLease fill out the following form</p>
+    <!-- <span> {{myform}}</span> -->
+    <p ng-show="myform.firstname.$invalid"> Name is invalid</p>
+    <input class="form-control"
+        ng-model="user.firstname"
+        ng-required="true"
+        ng-minlength="6"
+        type="text"
+        name="firstName">
+    <input class="form-control"
+        ng-model="user.lastName"
+        type="text"
+        name="lastName">
+    <input class="form-control"
+        ng-model="user.email"
+        type="email"
+        name="email">
+
+    <input class="form-control"
+        ng-model="user.password"
+        type="password"
+        name="password">
+    <button class="btn btn-success"
+        type="submit">Send</button>
+
+</form>
+{{user}}
