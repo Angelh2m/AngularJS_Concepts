@@ -17,9 +17,12 @@ app.directive('randomNinja', [ function() {
         // replace: true,
         controller: function($scope){
             $scope.random = Math.floor( Math.random() * 4);
+
+            console.log($scope.title);
+
         },
         link: function() {
-            console.log("Loaded too")
+            // console.log("Loaded too")
             // console.log(scope.ninjas )
         }
     }

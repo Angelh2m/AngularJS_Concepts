@@ -10,6 +10,33 @@
         <form name="contactForm"
             ng-submit="sendMessage()"
             novalidate>
+
+            <input class="form-control"
+                type="text"
+                autocomplete="given-name"
+                ng-model="user.nombre"
+                placeholder="Nombre"
+                name="nombre">
+            <input class="form-control"
+                type="text"
+                autocomplete="current-email"
+                ng-model="user.email"
+                placeholder="email"
+                name="email">
+            <input class="form-control"
+                type="password"
+                autocomplete="current-password"
+                ng-model="user.password"
+                placeholder="password"
+                name="password">
+            <input class="btn btn-primary btn-sm"
+                type="submit"
+                ng-disabled="contactForm.$invalid"
+                value="send">
+        </form>
+        <!-- <form name="contactForm"
+            ng-submit="sendMessage()"
+            novalidate>
             {{greeting}}
 
             <div ng-show="contactForm.name.$touched">
@@ -35,7 +62,8 @@
                 type="submit"
                 ng-disabled="contactForm.$invalid"
                 value="send">
-        </form>
+        </form> -->
+
     </div>
     <div class="col-sm-6">
         {{contact}}
