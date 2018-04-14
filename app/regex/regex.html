@@ -6,7 +6,8 @@
     <input 
     id="card"
         ng-model="masked"
-        ng-change="validator()"
+        ng-keyup="validator($event.keyCode)"
+
         ng-blur="maskIt()"
         ng-value="mask"
         ng-keypress="(format())"

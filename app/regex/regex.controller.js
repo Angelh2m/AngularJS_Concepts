@@ -13,9 +13,11 @@ app.controller('regex', ['$scope',
        var digitsVisible = false;
 
 
-       $scope.format = function(){
+       $scope.reveal = function(){
 
             // $scope.masked = 
+            console.log('%c ', + 'Done' + 'background: #222; color: #bada55')
+            
        };
 
        $scope.maskIt =  function() {
@@ -71,7 +73,9 @@ app.controller('regex', ['$scope',
 
        }
 
-       $scope.validator =  function() {
+       $scope.validator =  function(event) {
+           console.log(event);
+           
 
             var result;
             result = $scope.masked; 
@@ -107,7 +111,7 @@ app.controller('regex', ['$scope',
         //     */
 
         //    var spacersFilter = /([.\W|\d]{0,4})?([.\W|\d]{0,4})?([.\W|\d]{0,4})?([.\W|\d]{0,4})?/; 
-        //    var bullet = $scope.masked.replace(spacersFilter, '$1 $2 $3 $4');     
+        //    var bullet = $scope.masked.replace(/[\s]/g, '').replace(spacersFilter, '$1 $2 $3 $4');     
         //    console.log("New Bullet", bullet);
         //    console.log('On press bullet');
            
