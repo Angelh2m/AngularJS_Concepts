@@ -74,11 +74,16 @@ app.controller('regex', ['$scope',
        }
 
        $scope.validator =  function(event) {
-           console.log(event);
            
-
             var result;
             result = $scope.masked; 
+
+            /* *
+            *  On delete
+            */
+           if (event == 8) {   
+                return $scope.masked = result;
+            }      
             
             /* *
             *  Word filter
@@ -96,8 +101,6 @@ app.controller('regex', ['$scope',
             */
             var bulletFilter = /[.\W]/g;
             var bullet = masked.replace(bulletFilter, '$1');
-            console.log(bullet);
-            
             if (bullet !== '' && digitsVisible == false) {
                 console.log("There are bullets", bullet);
                 $scope.masked = cardNumber;
@@ -107,16 +110,14 @@ app.controller('regex', ['$scope',
 
 
             /* *
-        //     *  Try to format in bullets on the fly
-        //     */
+            *  Try to format in bullets on the fly
+            */
+            var spacersFilter = /([.\W|\d]{0,4})?([.\W|\d]{0,4})?([.\W|\d]{0,4})?([.\W|\d]{0,4})?/; 
+            var bullet = $scope.masked.replace(/[\s]/g, '').replace(spacersFilter, '$1 $2 $3 $4');     
+            console.log("New Bullet", bullet);
+            console.log('On press bullet');
 
-        //    var spacersFilter = /([.\W|\d]{0,4})?([.\W|\d]{0,4})?([.\W|\d]{0,4})?([.\W|\d]{0,4})?/; 
-        //    var bullet = $scope.masked.replace(/[\s]/g, '').replace(spacersFilter, '$1 $2 $3 $4');     
-        //    console.log("New Bullet", bullet);
-        //    console.log('On press bullet');
            
-            
-
             console.log("Number", result);
             console.log("Masked", $scope.masked);
             console.log("MaskedBlur", masked);
@@ -125,7 +126,7 @@ app.controller('regex', ['$scope',
             /* *
             *  Store the real and masked values
             */
-            $scope.masked = result;
+            $scope.masked = bullet;
             $scope.cardNumber = result
             cardNumber = result
 
