@@ -23,6 +23,11 @@ angular.module('try')
                 controller: 'contactForm2',
             })
 
+            .when('/regex', {
+                templateUrl: 'app/regex/regex.html',
+                controller: 'regex',
+            })
+
             .when('/blog/:id', {
                 template: '<blog-detail><blog-detail>'
             })

@@ -17,5 +17,6 @@ angular.module('try', [
     'directiveComp',
     // [More] directives,
     'contactForm',
+    'regex',
     'directiveController',
 ]);

@@ -1,0 +1,17 @@
+{{ name }}
+
+<h1>Card number</h1>
+
+<div class="col-9">
+    <input 
+    id="card"
+        ng-model="masked"
+        ng-change="validator()"
+        ng-blur="maskIt()"
+        ng-value="mask"
+        ng-keypress="(format())"
+        maxlength="20"
+        type="text" 
+        class="form-control">
+        {{cardNumber}}
+</div>
