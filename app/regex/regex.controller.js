@@ -106,6 +106,39 @@ app.controller('regex', ['$scope',
                 cardNumber = cardNumber.replace(/[\s]/g, '').replace(spacersFilter, '$1 $2 $3 $4 $5');     
             
             /* *
+            *  New
+            */
+
+            var filtered = bullet.split('').filter((el) => {
+                 return el !== ' ';
+            });
+
+            
+
+            var final = [];
+            var newArr = filtered.map( function(el, index) {
+                if (index === 4 ) {
+                    final.push(' ');
+                }
+                if (index === 8 ) {
+                    final.push(' ');
+                }
+                if (index === 12 ) {
+                    final.push(' ');
+                }
+                if (index === 16) {
+                    final.push(' ');
+                }
+
+                    final.push(el);
+            })
+
+            bullet = final.join('');
+            
+            // console.log(newArr);
+            
+
+            /* *
             *  Store the real and masked values
             */
             $scope.masked = bullet;
