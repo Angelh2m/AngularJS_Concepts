@@ -8,112 +8,89 @@ app.controller('regex', ['$scope',
             
        $scope.name = 'Angel';
 
-       var cardNumber = '';
-       var cacheCC = '';
-       var hashCC = ['', ''];
+       var creditCard = {
+        num: '',
+        mask: '',
+        typing: '',
+       };
+
 
        $scope.maskIt =  function() {
-            var result;
-            result = $scope.masked; 
+
+            creditCard.mask = $scope.masked; 
+
             /* *
-            *  Push only number and delete
+            *  Mask the characters
             */
-
-            var pattern = /(\W)/g;
-            cacheCC = result.replace(pattern, '');
-            var findBullets = result.replace(/[^\W]/g, '');
-
-            if (findBullets !== '') {
-                
-                if (cacheCC.length <= 12) {
-                    hashCC[0] = '';
-                    hashCC[0] = cacheCC;
-                }
-                if (cacheCC.length >= 12) {
-                    hashCC[1] = '';
-                    hashCC[1] = cacheCC;
-                }
+            var trimChar = 0;
+            if (creditCard.mask.length  >= 5 &&  creditCard.mask.length < 10) {
+                trimChar = 5;
+            }
+            if (creditCard.mask.length  >= 10 &&  creditCard.mask.length <= 19) {
+                trimChar = 14;
+            }
+            if (creditCard.mask.length  > 19) {
+                trimChar = 18;
             }
             
-   
-            console.log('Hash ', hashCC);
-
-            /* *
-            *  Trim the elements
-            */
-
-            var trimChar = 0;
-            if (cardNumber.length >= 12) {
-                cardNumber = result;
-                trimChar = 6;
-            }
-            if (cardNumber.length  >= 16) {
-                trimChar = 12;
-            }
-            if (cardNumber.length  >= 15) {
-                trimChar = 15;
-            }
+            console.log(trimChar);
+            console.log(creditCard.mask);
 
             /* *
             *  Convert the numbers into bullets
             */
-
             var digtConvert = /(\d)/g;
             var bullets = '\u2022';
             
-            var x = result.substr(0 , trimChar).replace(digtConvert, bullets)
-            var y = result.substr(trimChar , result.length);
+            var masked = creditCard.mask.substr(0 , trimChar).replace(digtConvert, bullets)
+            var unMasked = creditCard.mask.substr(trimChar , creditCard.mask.length);
             
             /* *
-            *  TODO: Join the original value from the hash 
+            *  Set the scope
             */
-            console.log("MAsk", x, y);
-            
-            $scope.masked = x + y;
+            $scope.masked = masked + unMasked;
+            creditCard.typing = false;
+       }
 
+       $scope.setScope  = function(params) {
+            if(creditCard.typing == false){
+                // Set the masking value to the rprevious value before masking 
+                $scope.masked = creditCard.num 
+                creditCard.typing = true;
+            }
        }
 
 
        $scope.validator =  function(event) {
-           
-            var result;
-            result = $scope.masked; 
-
+        
             /* *
-            *  On delete
+            *  Prevent adding non digits
             */
-           if (event == 8) {   
-                cardNumber = cardNumber.substr(0, cardNumber.length - 1);
-                return
-            }      
-            
+            var nonDigits = $scope.masked.match(/[a-zA-Z]/g);
+            if (nonDigits) {
+                return  $scope.masked = creditCard.num
+            }
+        
+            if(creditCard.typing !== '' && creditCard.typing == false){
+                $scope.masked = creditCard.num;
+                creditCard.typing = true;
+            }
+            creditCard.num = $scope.masked; 
+
             /* *
             *  Word filter
             */
             var wordFilter = /(.\W)?([^0-9])/g; //Filter special characters or letters
-            result = result.replace(wordFilter, '');
-            // If we have only symbols stop
-            if (result == '') {
-                console.log("STOP ", $scope.masked = cardNumber);
-                return
-            }
+            creditCard.num = creditCard.num .replace(wordFilter, '');
+ 
+            var cardDigits = $scope.masked;
 
             /* *
-            *  Try to format in bullets on the fly
+            *  Separate as **** **** **** ***
             */
-            var spacersFilter = /([.\W|\d]{0,4})?([.\W|\d]{0,4})?([.\W|\d]{0,4})?([.\W|\d]{0,4})?([.\W|\d]{0,3})?/; 
-            var bullet = $scope.masked.replace(/[\s]/g, '').replace(spacersFilter, '$1 $2 $3 $4 $5');     
-                cardNumber = cardNumber.replace(/[\s]/g, '').replace(spacersFilter, '$1 $2 $3 $4 $5');     
-            
-            /* *
-            *  New
-            */
-
-            var filtered = bullet.split('').filter((el) => {
+            var filtered = cardDigits.split('').filter((el) => {
                  return el !== ' ';
             });
-
-            
 
             var final = [];
             var newArr = filtered.map( function(el, index) {
@@ -133,17 +110,12 @@ app.controller('regex', ['$scope',
                     final.push(el);
             })
 
-            bullet = final.join('');
+            cardDigits = final.join('');
             
-            // console.log(newArr);
-            
-
             /* *
             *  Store the real and masked values
             */
-            $scope.masked = bullet;
-            $scope.cardNumber = result
-            cardNumber = result
+            $scope.masked = cardDigits;
        }
     }])
 })(window.angular);
