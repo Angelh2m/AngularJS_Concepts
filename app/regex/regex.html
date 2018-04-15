@@ -7,11 +7,9 @@
     id="card"
         ng-model="masked"
         ng-keyup="validator($event.keyCode)"
-
-
-        ng-value="mask"
+        ng-blur="maskIt()"
         ng-keypress="(format())"
-        maxlength="20"
+        maxlength="23"
         type="text" 
         class="form-control">
         {{cardNumber}}

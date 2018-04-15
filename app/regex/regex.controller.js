@@ -10,6 +10,7 @@ app.controller('regex', ['$scope',
 
        var cardNumber = '';
        var masked = '';
+       var cached = '';
        var digitsVisible = false;
 
 
@@ -20,69 +21,98 @@ app.controller('regex', ['$scope',
             
        };
 
+       var cachedCC = '';
+       var temp = ['', ''];
+
        $scope.maskIt =  function() {
-        var masking = $scope.cardNumber;
-        // digitsVisible == false
-        // Already a digit 
-        var digtConvert = /(\d)/g;
-        var bullets = '\u2022';
-        var result = masking;
+            var result;
+            result = $scope.masked; 
 
-        if (result !== undefined) {            
-            result = result.replace( digtConvert , bullets);
-            $scope.cardNumber = result;
-        }
+            var digtConvert = /(\d)/g;
+            var bullets = '\u2022';
 
-        // Bullet checker
-        var bulletFilter = /[.\W]/g;
-        var bullet = masked.replace(bulletFilter, '$1');        
-        if (bullet !== '') {
-            digitsVisible = false;
-        }
 
-        var trimChar = 0;
-        if (cardNumber.length >= 12) {
-            trimChar = 6;
-        }
-        if (cardNumber.length  >= 16) {
-            trimChar = 12;
-        }
-        if (cardNumber.length  >= 15) {
-            trimChar = 15;
-        }
-        console.log("Char==>", trimChar);
-        
 
-        var digitsMasked = result.substring(0 , trimChar);
-        var digitsUnmasked = cardNumber.substring(trimChar, cardNumber.length);
-        var finalMask = digitsMasked + digitsUnmasked
-        console.log('Final MAsk ', finalMask);
+            /* *
+            *  Push only number and delete
+            */
 
-        /* *
-        *  Bullet filter
-        */
+            var pattern = /(\W)/g;
 
-        var spacersFilter = /([.\W|\d]{0,4})?([.\W|\d]{0,4})?([.\W|\d]{0,4})?([.\W|\d]{0,4})?/; 
-        var bullet = finalMask.replace(spacersFilter, '$1 $2 $3 $4');     
-        console.log(bullet);
-        
+            cachedCC = result.replace(pattern, '');
+            var findBullets = result.replace(/[^\W]/g, '');
+            console.log('bullet', findBullets, cachedCC.length );
+            
+            if (findBullets !== '') {
+                
 
-        console.log('masked', result);
-        $scope.masked = bullet;
-        masked = result;
+                if (cachedCC.length <= 12) {
+                    temp[0] = '';
+                    temp[0] = cachedCC;
+                }
+                if (cachedCC.length >= 12) {
+                    temp[1] = '';
+                    temp[1] = cachedCC;
+                }
+
+                // first array lengh and // substract to the firstone
+
+
+            }
+            
+   
+            console.log('bullet2', temp);
+
+            /* *
+            *  Trim the elements
+            */
+
+            var trimChar = 0;
+            if (cardNumber.length >= 12) {
+                cardNumber = result;
+                trimChar = 6;
+            }
+            if (cardNumber.length  >= 16) {
+                trimChar = 12;
+            }
+            if (cardNumber.length  >= 15) {
+                trimChar = 15;
+            }
+
+            console.log("REsult", result , trimChar);
+            console.log('Card length', cardNumber.length );
+            
+
+            var x = result.substr(0 , trimChar).replace(digtConvert, bullets)
+            var y = result.substr(trimChar , result.length);
+            
+            console.log("MAsk", x, y);
+            
+            $scope.masked = x + y;
 
        }
+
 
        $scope.validator =  function(event) {
            
             var result;
             result = $scope.masked; 
 
+            console.log(event);
+
+
+            
+
             /* *
             *  On delete
             */
            if (event == 8) {   
-                return $scope.masked = result;
+                // $scope.cardNumber = $scope.cardNumber.substr(0, cardNumber.length);
+                // result = result.substr(0, cardNumber.length -1);
+                console.log(cardNumber.length);
+                
+                cardNumber = cardNumber.substr(0, cardNumber.length - 1);
+                return
             }      
             
             /* *
@@ -112,9 +142,12 @@ app.controller('regex', ['$scope',
             /* *
             *  Try to format in bullets on the fly
             */
-            var spacersFilter = /([.\W|\d]{0,4})?([.\W|\d]{0,4})?([.\W|\d]{0,4})?([.\W|\d]{0,4})?/; 
-            var bullet = $scope.masked.replace(/[\s]/g, '').replace(spacersFilter, '$1 $2 $3 $4');     
+            var spacersFilter = /([.\W|\d]{0,4})?([.\W|\d]{0,4})?([.\W|\d]{0,4})?([.\W|\d]{0,4})?([.\W|\d]{0,3})?/; 
+            
+            var bullet = $scope.masked.replace(/[\s]/g, '').replace(spacersFilter, '$1 $2 $3 $4 $5');     
+                cardNumber = cardNumber.replace(/[\s]/g, '').replace(spacersFilter, '$1 $2 $3 $4 $5');     
             console.log("New Bullet", bullet);
+            console.log("New cardnum", cardNumber);
             console.log('On press bullet');
 
            
@@ -129,6 +162,8 @@ app.controller('regex', ['$scope',
             $scope.masked = bullet;
             $scope.cardNumber = result
             cardNumber = result
+            console.log('CARD NUMBER', cardNumber);
+            
 
        }
        
