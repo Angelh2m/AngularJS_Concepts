@@ -32,7 +32,6 @@ app.controller('regex', ['$scope',
             if (creditCard.mask.length  > 19) {
                 trimChar = 18;
             }
-            
             console.log(trimChar);
             console.log(creditCard.mask);
 
@@ -53,11 +52,9 @@ app.controller('regex', ['$scope',
        }
 
        $scope.setScope  = function(params) {
-            if(creditCard.typing == false){
-                // Set the masking value to the rprevious value before masking 
-                $scope.masked = creditCard.num 
-                creditCard.typing = true;
-            }
+            // Set the masking value to the rprevious value before masking 
+            $scope.masked = creditCard.mask 
+            creditCard.typing = true;
        }
 
 
